@@ -7,7 +7,7 @@ Sorts stored money data from least to greatest deposit amount.
 
 
 Interfacing SQLite and C++ code. View Table, Insert Record, Find Avg over Interval, Sort data from least to greatest.
-Write data from program to XML file for webservice consumption.
+Write data from program to XML file for webservice consumption. Webservice XML files are stored as "databaseresults.xml" and "sumwebservice.xml".
 
 The program that interfaces with SQLite database. I choose SQLite over a traditional database to be user friendly
 on more machines. Data is generated and stored in data.db file instead of having to install anything. Displays records, inserts records, finds average over a range, sorts data in database column.
@@ -25,12 +25,14 @@ In this program I have implemented 6 functions.
 If a table exists this function will be passed over. 
 
 *The second function [displaymoneyvstime()] displays all the records stored in the database.
+Outputs records to console and databaseresults.xml.
 
 *The third function [inputmoneyvstime(int, int)] allows a user to input a record
 into the database.
 
 *The fourth function [meanmoney(int, int)] allows a user to specify a start and end 
-date to find the average of money data over a specify interval.
+date to find the average of money data over a specify interval. Outputs result to
+console and webservice.xml.
 
 *The fifth function [sorter()] sorts money data from least to greatest. The purpose of this
 is to show how to pass an array of data to an external library.
