@@ -1,0 +1,17 @@
+<xml>
+<RECORD1> 
+<ID>1</ID>  
+<TIME>0</TIME>  
+<MONEY>10</MONEY>  
+</RECORD1> 
+<RECORD2> 
+<ID>2</ID>  
+<TIME>1</TIME>  
+<MONEY>5</MONEY>  
+</RECORD2> 
+<RECORD3> 
+<ID>3</ID>  
+<TIME>3</TIME>  
+<MONEY>10</MONEY>  
+</RECORD3> 
+</xml>
