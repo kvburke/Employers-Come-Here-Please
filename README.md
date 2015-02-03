@@ -10,7 +10,7 @@ Interfacing SQLite and C++ code. View Table, Insert Record, Find Avg over Interv
 Write data from program to XML file for webservice consumption.
 
 The program that interfaces with SQLite database. I choose SQLite over a traditional database to be user friendly
-on more machines. Displays records, inserts records, finds average over a range, sorts data in database column.
+on more machines. Data is generated and stored in data.db file instead of having to install anything. Displays records, inserts records, finds average over a range, sorts data in database column.
 
 REQUIRES BOOST AND SQLITE3 LIBRARIES!!!
 
