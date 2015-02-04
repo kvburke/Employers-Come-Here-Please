@@ -104,32 +104,13 @@ static int callback2(void *NotUsed, int argc, char **argv2, char **azColName){
 }
 
 
-/*LOGIC to interface with database iterates through the money (second) column and places values into sumholder vector*/
-static int callback3(void *NotUsed, int argc, char **argv, char **azColName){
-   int i; /*References "i" column we use the second column to acquire money data*/
-   int sum;
-
-
-   for(i=2; i<3; i++){ /*This loop keeps the summing iteration bound to the second column*/
-
-      sum= atoi (argv[i]); /*SQLite API outputs string data fields. So convert string values to int values and sum data*/
-
-
-      sumholder.push_back(sum); /*Iterate money column and push a value from the money column into sumholder vector*/
-
-
-   }
-
-
-   return 0;
-}
 
 
 
 
 /*LOGIC to interface with database table and display rows and columns to an XML file */
 /*Called by updatemoneyxml() function to write to update XML file after new data is added */
-static int callback4(void *handle, int argc, char **argv, char **azColName){
+static int callback3(void *handle, int argc, char **argv, char **azColName){
 
     int i;
     const char *sep = "";
@@ -458,46 +439,6 @@ void Engine::meanmoney(int first, int last){ /*Function to calculate mean over a
 
 void Engine::sorter(){ /*Function that sorts money values listed in database from least to greatest */
 
-sumholder.clear(); /*Clears vector objects in memory that were created during summing process in meanmoney(). */
-vector<int> (sumholder).swap(sumholder);
-
-
-sqlite3 *db; /*Declaring parameters to use in SQLite API */
-   char *zErrMsg = 0;
-   int  rc;
-   char *sql;
-    const char* data = "Callback function called";
-
-
-sql = "SELECT * from TIMEANDMONEYd"; /*Query table to acquire data*/
-
-
-   /* Open database */
-   rc = sqlite3_open("test.db", &db);
-   if( rc ){
-      fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
-      exit(0);
-   }else{
-      fprintf(stderr, "Opened database successfully\n");
-   }
-
-/*SQLite API will query database and run callback3 function
-this function will iterate through the MONEY COLUMN and insert values
-into the Vector call sumholder */
-rc = sqlite3_exec(db, sql, callback3, (void*)data, &zErrMsg);
-   if( rc != SQLITE_OK ){
-      fprintf(stderr, "SQL error: %s\n", zErrMsg);
-      sqlite3_free(zErrMsg);
-   }else{
-      fprintf(stdout, "Operation done successfully\n");
-
-
-
-
-   sqlite3_close(db);
-
-}
-
 /*After money values are placed into vector by callback3 function
 use the boost library to sort the vector least to greatest*/
 std::sort(boost::begin(sumholder), boost::end(sumholder));
@@ -544,7 +485,7 @@ FILE *f= fopen("databaseresults.xml", "w"); /*open filepointer to write SELECT Q
     sql=c;
 
    /* Execute SELECT SQL statement and display results */
-   rc = sqlite3_exec(db, sql, callback4, 0, &errs);
+   rc = sqlite3_exec(db, sql, callback3, 0, &errs);
    if( rc != SQLITE_OK ){
       fprintf(stderr, "SQL error: %s\n", zErrMsg);
       sqlite3_free(zErrMsg);
@@ -557,3 +498,4 @@ FILE *f= fopen("databaseresults.xml", "w"); /*open filepointer to write SELECT Q
      fclose(f);
 
 }
+
