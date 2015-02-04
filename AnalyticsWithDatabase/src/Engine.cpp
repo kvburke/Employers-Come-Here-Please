@@ -439,8 +439,7 @@ void Engine::meanmoney(int first, int last){ /*Function to calculate mean over a
 
 void Engine::sorter(){ /*Function that sorts money values listed in database from least to greatest */
 
-/*After money values are placed into vector by callback3 function
-use the boost library to sort the vector least to greatest*/
+
 std::sort(boost::begin(sumholder), boost::end(sumholder));
 
 cout << "Sorting entire money distribution from least to greatest:" << endl;
