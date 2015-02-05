@@ -15,7 +15,7 @@
 using namespace std;
 
 
-int sum1=0; /*Global variables*/
+int sum1=0; /*Instance variables*/
 int sum2=0;
 vector<int> sumholder;
 FILE *f= fopen("databaseresults.xml", "w");
