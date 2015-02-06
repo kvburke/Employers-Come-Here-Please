@@ -493,8 +493,10 @@ FILE *f= fopen("databaseresults.xml", "w"); /*open filepointer to write SELECT Q
     fprintf(f, "</xml>\n");
 
    }
+
+   sumholder.clear(); /*Clears vector objects in memory that were created during summing process in meanmoney(). */
+    vector<int> (sumholder).swap(sumholder);
    sqlite3_close(db); /*Close database and filepointer */
      fclose(f);
 
 }
-
