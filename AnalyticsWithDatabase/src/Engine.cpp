@@ -1,7 +1,6 @@
 #include <iostream> /*Reference necessary libraries and header files*/
 #include "sqlite3.h" /*Program uses many APIs from standard library and boost*/
 #include "Engine.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
@@ -14,9 +13,12 @@
 
 using namespace std;
 
-
 int sum1=0; /*Instance variables*/
 int sum2=0;
+Engine::Engine(){
+
+
+}
 vector<int> sumholder;
 FILE *f= fopen("databaseresults.xml", "w");
 
