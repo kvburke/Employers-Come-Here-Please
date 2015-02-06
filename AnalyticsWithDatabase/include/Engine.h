@@ -4,11 +4,8 @@
 class Engine {
 
 
-
-
-
-
 public:
+Engine();
 void createtable();
 void displaymoneyvstime();
 void inputmoneyvstime(int, int);
@@ -19,3 +16,5 @@ void updatemoneyvstimexml();
 
 };
 #endif // ENGINE_H
+
+
