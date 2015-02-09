@@ -41,6 +41,6 @@ is to show how to pass an array of data to an external library.
 is inserted into the database by the inputmoneyvstime(int, int) function.
 
 
-
+Display.html and primary.js are used to parse XML results into a browser viewable format. Filepath on the ajax call in primary.js need to be adjusted depending on your system. Filepath on javascript location in display html may need to be changed depending on your system.
 
 Any additional questions I can be reached at kvburke@ncsu.edu
