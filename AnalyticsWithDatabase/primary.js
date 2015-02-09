@@ -1,11 +1,11 @@
+var once='true';  //Has this program ran once?
+
+function test(){  //Main function
 
 
-function test(){                                    //Main function
-
-
-
-
-$.ajax({                                          //Ajax call to databaseresults.xml
+if(once=='true'){    //If program has run more then once mark once false so we don't append values twice
+once='false';
+$.ajax({			//Ajax call to databaseresults.xml
     url: 'xml/databaseresults.xml',
     dataType: 'xml',
     success: function(data) {
@@ -13,17 +13,17 @@ $.ajax({                                          //Ajax call to databaseresults
 
 
 
-var min=document.getElementById("min").value;                 //Acquires min range value from html form
-var max=document.getElementById("max").value;                 //Acquires max range value from html form
+var min=document.getElementById("min").value; 	//Acquires min range value from html form
+var max=document.getElementById("max").value;	//Acquires max range value from html form
 
 
 
-for (i=min; i<=max; i++) {                                    //Iterate over range and display values from XML file
+for (i=min; i<=max; i++) {	//Iterate over range and display values from XML file
 
 var id=i;
 
 
-        $(data).find('xml RECORD'+id).each(function() {         //Acquire ID, TIME, MONEY fields from XML file
+        $(data).find('xml RECORD'+id).each(function() {	 //Acquire ID, TIME, MONEY fields from XML file
         var statusid = $(this).find('ID').text();
         var statustime = $(this).find('TIME').text();
         var statusmoney = $(this).find('MONEY').text();
@@ -32,7 +32,7 @@ var id=i;
 	 
        
         
-        $('.databaseresults ul1').append(statusid+"\n");        //Append values and place them under the databaseresults/ul1 NODE
+        $('.databaseresults ul1').append(statusid+"\n");	//Append values and place them under the databaseresults/ul1 NODE
         $('.databaseresults ul1').append(statustime+"\n");
         $('.databaseresults ul1').append(statusmoney+"\n");
         $('.databaseresults ul1').append("<br>");
@@ -43,7 +43,7 @@ var id=i;
 }
 
 },
-    error: function() {                                           //Error handling
+    error: function() {							//Error handling
         $('.xml').text('Failed to get feed');
     }
 });
@@ -53,7 +53,7 @@ var id=i;
 
 
 }
-
+}
 
 
 function refresh(){
