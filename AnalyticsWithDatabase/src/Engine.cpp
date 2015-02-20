@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int sum1=0; /*Instance variables*/
+int sum1=0; /*Globals and constructor*/
 int sum2=0;
 Engine::Engine(){
 
