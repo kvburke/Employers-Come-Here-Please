@@ -19,8 +19,8 @@ Engine::Engine(){
 
 
 }
-vector<int> sumholder;
-FILE *f= fopen("databaseresults.xml", "w");
+vector<int> sumholder; /*Global vector that is passed around methods*/
+FILE *f= fopen("databaseresults.xml", "w"); /*File pointer for creating XML file*/
 
 
 /*LOGIC to interface with database table and display rows and columns to STDOUT and an XML file */
@@ -106,10 +106,6 @@ static int callback2(void *NotUsed, int argc, char **argv2, char **azColName){
 }
 
 
-
-
-
-
 /*LOGIC to interface with database table and display rows and columns to an XML file */
 /*Called by updatemoneyxml() function to write to update XML file after new data is added */
 static int callback3(void *handle, int argc, char **argv, char **azColName){
@@ -159,8 +155,6 @@ static int callback3(void *handle, int argc, char **argv, char **azColName){
    return 0;
 
 }
-
-
 
 
 
